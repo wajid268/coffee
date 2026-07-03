@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EspressoLux | Premium Artisanal Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#93000a",
+                        "inverse-surface": "#ede0d4",
+                        "on-tertiary": "#303221",
+                        "on-primary-fixed-variant": "#504444",
+                        "tertiary-fixed-dim": "#c8c8b0",
+                        "primary-fixed-dim": "#d4c2c2",
+                        "primary-fixed": "#f1dede",
+                        "secondary": "#e9c349",
+                        "surface-dim": "#18120c",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-primary": "#392e2e",
+                        "on-tertiary-container": "#7f806b",
+                        "on-error": "#690005",
+                        "on-background": "#ede0d4",
+                        "surface-container-high": "#302921",
+                        "secondary-container": "#af8d11",
+                        "on-primary-fixed": "#231919",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#141507",
+                        "inverse-on-surface": "#362f27",
+                        "on-secondary": "#3c2f00",
+                        "primary": "#d4c2c2",
+                        "surface-container-low": "#211b13",
+                        "surface-variant": "#3b342b",
+                        "on-surface": "#ede0d4",
+                        "inverse-primary": "#695b5b",
+                        "primary-container": "#1b1212",
+                        "on-tertiary-fixed-variant": "#474836",
+                        "background": "#18120c",
+                        "surface-container": "#251f17",
+                        "surface-tint": "#d4c2c2",
+                        "secondary-fixed": "#ffe088",
+                        "outline-variant": "#4e4544",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#3b342b",
+                        "surface-bright": "#3f3830",
+                        "surface": "#18120c",
+                        "on-primary-container": "#8a7b7b",
+                        "tertiary-fixed": "#e4e4cc",
+                        "on-surface-variant": "#d1c3c3",
+                        "surface-container-lowest": "#130d07",
+                        "tertiary": "#c8c8b0",
+                        "on-secondary-fixed": "#241a00",
+                        "on-secondary-fixed-variant": "#574500",
+                        "outline": "#9a8e8d",
+                        "on-secondary-container": "#342800",
+                        "on-tertiary-fixed": "#1b1d0e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "button": ["Montserrat"],
+                        "label-caps": ["Montserrat"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "body-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #18120c;
+            color: #ede0d4;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(237, 224, 212, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #e9c349 0%, #af8d11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .steam-loader {
+            display: flex;
+            gap: 4px;
+        }
+        .steam-line {
+            width: 2px;
+            height: 12px;
+            background: #e9c349;
+            animation: steam-rise 1.5s ease-in-out infinite;
+        }
+        @keyframes steam-rise {
+            0%, 100% { height: 12px; opacity: 0.3; }
+            50% { height: 24px; opacity: 1; }
+        }
+        .bean-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.1;
+            filter: blur(1px);
+        }
+        #loading-screen {
+            background: #18120c;
+            z-index: 9999;
+        }
+        .product-grid-enter {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .product-grid-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease-out;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #18120c; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e9c349; }
+    </style>
+</head>
+<body class="font-body-md selection:bg-secondary selection:text-on-secondary">
+<!-- Loading Screen -->
+<div class="fixed inset-0 flex flex-col items-center justify-center" id="loading-screen">
+<div class="steam-loader mb-4">
+<div class="steam-line" style="animation-delay: 0s"></div>
+<div class="steam-line" style="animation-delay: 0.2s"></div>
+<div class="steam-line" style="animation-delay: 0.4s"></div>
+</div>
+<p class="font-label-caps text-label-caps uppercase tracking-[0.3em] text-secondary">Roasting Excellence</p>
+</div>
+<!-- Navigation -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-secondary/20 shadow-sm transition-all duration-300">
+<nav class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Espresso Noir Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLuqbF-ppIQeGLm4S_4j07SA41gv9azs9pKObrLxO4lSiN97kfTM1KBZEMwYYHB47rEis39HCefVPUzgcAYERB95bweHiDj7OwM6HbfrBevBCLZMwt4k-NXVxPAGGGQE8GKtOBimsD4DO77u8fhzmVUSbnGux4_BaD9_n6aqO_j_CAllNnQufy2XlFQLUZX8fjju4U3aR6f2FRANyS4ZovG8sfdysg592sflb0ENqYtTajYgnuhpveyK8MM"/>
+<span class="font-headline-md text-headline-md font-bold text-secondary">EspressoLux</span>
+</div>
+<ul class="hidden md:flex gap-8 items-center font-Montserrat text-button uppercase tracking-widest">
+<li><a class="text-secondary border-b-2 border-secondary pb-1 transition-all duration-300" href="#">Menu</a></li>
+<li><a class="text-on-surface hover:text-secondary/80 transition-colors duration-300" href="#">Roastery</a></li>
+<li><a class="text-on-surface hover:text-secondary/80 transition-colors duration-300" href="#">Brew Guides</a></li>
+<li><a class="text-on-surface hover:text-secondary/80 transition-colors duration-300" href="#">Locations</a></li>
+</ul>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface hover:text-secondary transition-colors duration-300 scale-95 active:scale-90">favorite</button>
+<div class="relative group cursor-pointer" onclick="toggleCart()">
+<button class="material-symbols-outlined text-on-surface hover:text-secondary transition-colors duration-300 scale-95 active:scale-90">shopping_cart</button>
+<span class="absolute -top-2 -right-2 bg-secondary text-on-secondary text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] flex items-center justify-center border border-background" id="cart-badge">0</span>
+</div>
+<button class="material-symbols-outlined text-on-surface hover:text-secondary transition-colors duration-300 scale-95 active:scale-90">person</button>
+</div>
+</nav>
+</header>
+<!-- Shopping Cart Drawer -->
+<div class="fixed inset-y-0 right-0 w-full md:w-96 bg-surface-container shadow-2xl z-[60] translate-x-full transition-transform duration-500 glass-card" id="cart-drawer">
+<div class="p-8 h-full flex flex-col">
+<div class="flex justify-between items-center mb-8 border-b border-outline-variant/20 pb-4">
+<h3 class="font-headline-sm text-headline-sm text-secondary">Your Ritual</h3>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary" onclick="toggleCart()">close</button>
+</div>
+<div class="flex-grow overflow-y-auto custom-scrollbar space-y-4" id="cart-items">
+<!-- Cart items injected by JS -->
+<p class="text-center text-on-surface-variant py-20 italic">Your collection is empty.</p>
+</div>
+<div class="pt-8 border-t border-outline-variant/20">
+<div class="flex justify-between mb-4">
+<span class="font-label-caps text-label-caps">Subtotal</span>
+<span class="font-headline-sm text-headline-sm text-secondary" id="cart-subtotal">$0.00</span>
+</div>
+<button class="w-full py-4 bg-secondary text-on-secondary font-button text-button uppercase tracking-widest hover:bg-secondary-container transition-colors duration-300">Proceed to Checkout</button>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIpM7aGZ_vLbpJhrEwhuNv2ESNXNOj0FYS3ZSL6tPmSU4ka-4ECxfjOySeQI7tpbmDE1Pn4NuCBJl1MVUO8QRCVGWcT6ij0hFsW7WLJPZBaV88HmFpCkuDKcsMM3354d1Wc--syI7eoNLLuRv6Kq_nEHEwoxN97ioNsxURafxV1MQoO-t6hg77y7dPimcXp68pVTWdMnNsoTC5V1a6oDMRjGVR7q0xwh2RkTfVaLUA3xDpNuvs0ZKf')"></div>
+
+<div class="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile md:px-0 max-w-4xl opacity-0 translate-y-10 transition-all duration-1000 ease-out" id="hero-content">
+<h2 class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.4em] mb-4">Artisanal Curation</h2>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-6 leading-tight">Explore Our <br/><span class="gold-gradient-text italic">Premium Coffee Menu</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">From the mist-shrouded highlands of Ethiopia to the sun-drenched estates of Colombia, discover a ritual that transcends the ordinary.</p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<a class="px-10 py-4 bg-secondary text-on-secondary font-button text-button uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_20px_rgba(233,195,73,0.3)] hover:-translate-y-1" href="#menu-grid">View Collection</a>
+<a class="px-10 py-4 border border-secondary text-secondary font-button text-button uppercase tracking-widest hover:bg-secondary/10 transition-all duration-300" href="#">Gift Subscriptions</a>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer">
+<span class="material-symbols-outlined text-secondary text-4xl">expand_more</span>
+</div>
+</section>
+<!-- Best Sellers Slider -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h3 class="font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-2">Connoisseur's Choice</h3>
+<h2 class="font-headline-md text-headline-md">Our Best Sellers</h2>
+</div>
+<div class="flex gap-4">
+<button class="p-2 border border-outline-variant/30 text-secondary hover:bg-secondary/10 transition-colors material-symbols-outlined">chevron_left</button>
+<button class="p-2 border border-outline-variant/30 text-secondary hover:bg-secondary/10 transition-colors material-symbols-outlined">chevron_right</button>
+</div>
+</div>
+<div class="flex gap-gutter overflow-x-auto pb-8 custom-scrollbar">
+<!-- Carousel items -->
+<div class="min-w-[320px] flex-shrink-0 glass-card p-6 group">
+<div class="relative h-64 overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up shot of a perfectly layered gold-flecked latte in a clear crystal cup, sitting on a dark marble counter. Soft moody lighting with warm golden undertones highlights the rich texture of the foam." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUER7dcxKiaFXWyDHeWPUZnDqrRtsDzglfGxjFozaLrMqVPkJqPoSmg-_fdDJGWWDuc9TjxnQhJRAeQ4uONSbNrRgvp-aKFCPB3gtprq0PS44YYyUQ2U4vxKQKoSnzeenrRcK8uJz3YPU5lq5s4xi9bQNDO91bqWHRVBGGs7Jk3P9Sx7QR9_DJbOnEmS1Knwlfekua7lS2_OaGwmC5vWR93pwErxIxRA-gvByQVHi3Ywospxkq3Hz0"/>
+<div class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 font-label-caps text-xs">BEST SELLER</div>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Saffron Gold Latte</h4>
+<p class="text-on-surface-variant text-sm mb-4">Persian saffron infused with organic clover honey and silk-microfoam.</p>
+<div class="flex justify-between items-center">
+<span class="text-secondary font-semibold text-lg">$14.50</span>
+<button class="text-on-surface material-symbols-outlined hover:text-secondary transition-colors">add_shopping_cart</button>
+</div>
+</div>
+<!-- More items... (Simplified for prototype) -->
+<div class="min-w-[320px] flex-shrink-0 glass-card p-6 group">
+<div class="relative h-64 overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An elegant dark espresso shot in a matte black designer ceramic cup. The crema is rich and thick with a tiger-stripe pattern. The background is a blurred high-end coffee shop with warm ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLWmYnqCWj8q8Qk6Prb_zwRpdFaxhNsXoEix3wCjRAoig5zJcKhVEWplznRdP6N3bMOyG4O6F7YNglFjSIcRuQIgjxzueeatPjA7RHbWwzODCsz2eImU1JkTMd3B4sykGzYp9Hv42E8vohHlNINlpbZPWR1AOifEBdlCdK6RcwAq9LRQu7-wxZpaPWOeOFBP2OIGqfJUguDsqIJGyRCJ-cpH8t4uNgP6Kz6Jax38xp5wl_kPlMDMqc"/>
+<div class="absolute top-4 left-4 bg-secondary text-on-secondary px-3 py-1 font-label-caps text-xs">NEW ARRIVAL</div>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Black Onyx Espresso</h4>
+<p class="text-on-surface-variant text-sm mb-4">Intense notes of dark cocoa and toasted hazelnut from High-Altitude beans.</p>
+<div class="flex justify-between items-center">
+<span class="text-secondary font-semibold text-lg">$8.00</span>
+<button class="text-on-surface material-symbols-outlined hover:text-secondary transition-colors">add_shopping_cart</button>
+</div>
+</div>
+<div class="min-w-[320px] flex-shrink-0 glass-card p-6 group">
+<div class="relative h-64 overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A luxurious iced coffee with thick cold foam topping, served in a ribbed tall glass. Swirls of caramel and chocolate are visible inside. The scene is lit by a dramatic spotlight against a dark atmospheric background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEdgLkVSBHGT_uC9G5CTgzcMPqW2i5dgqBotUjkCledl50tSwTOxmLczo2vrPK3liWDWZNMpEZtcythSiJ_3lY8YNCCFoF450yWTRVvr2S6qNa32BhPQL_2zbyvONCvTx4crhOq5DSMnPGnz95ckPgLyviC_TNkDTzU9gEpgcRou0u6V81wgF0zuY0NEmsOnVa1oMJpWUaRgsplPcOlPUSVS4r4odwIjNDvXSlP-4OFcjg1PvN339J"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Midnight Cold Brew</h4>
+<p class="text-on-surface-variant text-sm mb-4">24-hour slow drip extraction served over hand-carved crystal ice.</p>
+<div class="flex justify-between items-center">
+<span class="text-secondary font-semibold text-lg">$12.00</span>
+<button class="text-on-surface material-symbols-outlined hover:text-secondary transition-colors">add_shopping_cart</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filters & Main Menu -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="menu-grid">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md mb-8">The Collection</h2>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="filter-btn active px-6 py-2 border border-secondary bg-secondary text-on-secondary font-label-caps text-xs uppercase tracking-widest transition-all" onclick="filterMenu('all')">All</button>
+<button class="filter-btn px-6 py-2 border border-outline-variant/30 text-on-surface-variant hover:border-secondary hover:text-secondary font-label-caps text-xs uppercase tracking-widest transition-all flex items-center gap-2" onclick="filterMenu('hot')">
+<span class="material-symbols-outlined text-sm">local_cafe</span> Hot Coffee
+                </button>
+<button class="filter-btn px-6 py-2 border border-outline-variant/30 text-on-surface-variant hover:border-secondary hover:text-secondary font-label-caps text-xs uppercase tracking-widest transition-all flex items-center gap-2" onclick="filterMenu('cold')">
+<span class="material-symbols-outlined text-sm">ac_unit</span> Cold Coffee
+                </button>
+<button class="filter-btn px-6 py-2 border border-outline-variant/30 text-on-surface-variant hover:border-secondary hover:text-secondary font-label-caps text-xs uppercase tracking-widest transition-all flex items-center gap-2" onclick="filterMenu('espresso')">
+<span class="material-symbols-outlined text-sm">bolt</span> Espresso
+                </button>
+<button class="filter-btn px-6 py-2 border border-outline-variant/30 text-on-surface-variant hover:border-secondary hover:text-secondary font-label-caps text-xs uppercase tracking-widest transition-all flex items-center gap-2" onclick="filterMenu('desserts')">
+<span class="material-symbols-outlined text-sm">cake</span> Desserts
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter" id="product-container">
+<!-- Product Cards will be injected by JavaScript -->
+</div>
+</section>
+<!-- Special Offers / Combo Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-desktop grid md:grid-cols-2 gap-12">
+<div class="relative h-[400px] flex items-center p-12 overflow-hidden glass-card">
+<div class="absolute inset-0 bg-cover bg-center opacity-30" data-alt="A sophisticated coffee and pastry pairing. A small silver tray holding a steaming espresso and a gold-leaf topped dark chocolate croissant. Cinematic side lighting on a dark textured background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3oTmiEmf0eYVYZc9Llpbxi00BORhFERpnV1hklqmsWIJ4MvXRTAhOLirIE7_vlGzPYtk3EQ6VCAKsi5pW-_MgYV96k53h5_0TJvTuGWpm-E9aW4hw4yEzxMf2z7ug2t8WbmSYYzgRhEv6DrjhTLheCwR6IcVMTXmXNRJeXETsjOvQ5_xsY88pl6seSSsihIuQc_TtCHwFLwxYaxMdNxvDCEdE8tbJhoDXBR4-c7FIE5k-ODwPH1jX')"></div>
+<div class="relative z-10">
+<h3 class="font-headline-sm text-headline-sm mb-4">The Morning Ritual Combo</h3>
+<p class="text-on-surface-variant mb-6">Signature Pour-over + Artisanal Pastry of the day.</p>
+<span class="block text-secondary text-2xl font-bold mb-6">$18.00</span>
+<button class="px-8 py-3 bg-secondary text-on-secondary font-button text-xs uppercase tracking-widest hover:scale-105 transition-transform">Claim Offer</button>
+</div>
+</div>
+<div class="relative h-[400px] flex items-center p-12 overflow-hidden glass-card">
+<div class="absolute inset-0 bg-cover bg-center opacity-30" data-alt="A flight of three different premium coffee origins in small glasses. One light roast, one medium, one dark. The glasses are set on a polished dark wood tasting board." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCf2UBV1zelYp6ibINLvoPY1BIE_jfaUKomQhc4pb30eb0Vgpzr0OaNdWtKnzgf0URQLPGLnrUcXYGHHCYBoZKl_HoScsoQj25_ABLH1E5CI21qsPX8U7t2OgSwgIdi7VHGR-BiLJL-t06dy4hJobp-38VGl2ZsZfK4oTvpgGHWYMBUIvDBrl2R-GBfAWbOqsgbJi1IZ-kxmY6SbuUXRjdjIGzz52yZhJLcHHDMjtbq9tNZ-S0Eh5ad')"></div>
+<div class="relative z-10">
+<h3 class="font-headline-sm text-headline-sm mb-4">Artisan Tasting Flight</h3>
+<p class="text-on-surface-variant mb-6">Sample 3 micro-lot origins curated by our master roaster.</p>
+<span class="block text-secondary text-2xl font-bold mb-6">$24.00</span>
+<button class="px-8 py-3 bg-secondary text-on-secondary font-button text-xs uppercase tracking-widest hover:scale-105 transition-transform">Claim Offer</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Customer Reviews -->
+<section class="py-24 overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<h2 class="font-headline-md text-headline-md mb-12">Whispers of Satisfaction</h2>
+<div class="flex gap-8 overflow-x-auto pb-12 custom-scrollbar snap-x">
+<div class="min-w-full md:min-w-[500px] glass-card p-12 snap-center">
+<div class="flex justify-center mb-6">
+<span class="material-symbols-outlined text-secondary">smart_assistant</span>
+</div>
+<p class="font-body-lg text-on-surface italic mb-8">"The Espresso Noir isn't just coffee; it's a sensory experience that redefined my morning routine. Truly exceptional quality."</p>
+<h4 class="font-label-caps text-label-caps uppercase text-secondary">— Julian V. | Gastronome</h4>
+</div>
+<div class="min-w-full md:min-w-[500px] glass-card p-12 snap-center">
+<div class="flex justify-center mb-6">
+<span class="material-symbols-outlined text-secondary">smart_assistant</span>
+</div>
+<p class="font-body-lg text-on-surface italic mb-8">"Never have I tasted notes of lavender and chocolate so clearly. Their artisanal approach is evident in every single sip."</p>
+<h4 class="font-label-caps text-label-caps uppercase text-secondary">— Elena R. | Design Curator</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-24 bg-primary-container relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#e9c349_0%,transparent_50%)] opacity-10"></div>
+</div>
+<div class="max-w-xl mx-auto px-margin-mobile text-center relative z-10">
+<h3 class="font-headline-md text-headline-md mb-6">Join The Inner Circle</h3>
+<p class="text-on-surface-variant mb-10">Subscribe to receive exclusive access to our private roasts and limited edition seasonal collections.</p>
+<form class="flex gap-4 p-2 bg-surface-container rounded-full border border-outline-variant/30 focus-within:border-secondary transition-all">
+<input class="bg-transparent border-none focus:ring-0 flex-grow px-6 text-on-surface placeholder:text-outline/50" placeholder="Your email address" type="email"/>
+<button class="bg-secondary text-on-secondary px-8 py-3 rounded-full font-button text-button uppercase tracking-widest hover:scale-105 transition-transform">Subscribe</button>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-12 border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<img alt="Logo" class="h-8" src="https://lh3.googleusercontent.com/aida/AP1WRLuqbF-ppIQeGLm4S_4j07SA41gv9azs9pKObrLxO4lSiN97kfTM1KBZEMwYYHB47rEis39HCefVPUzgcAYERB95bweHiDj7OwM6HbfrBevBCLZMwt4k-NXVxPAGGGQE8GKtOBimsD4DO77u8fhzmVUSbnGux4_BaD9_n6aqO_j_CAllNnQufy2XlFQLUZX8fjju4U3aR6f2FRANyS4ZovG8sfdysg592sflb0ENqYtTajYgnuhpveyK8MM"/>
+<span class="font-headline-sm text-headline-sm text-secondary">EspressoLux</span>
+</div>
+<p class="text-on-surface-variant text-sm">Artisanal roasters dedicated to the pursuit of coffee perfection. Curating the world's most exclusive beans since 2012.</p>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-secondary material-symbols-outlined" href="#">public</a>
+<a class="text-on-surface-variant hover:text-secondary material-symbols-outlined" href="#">alternate_email</a>
+<a class="text-on-surface-variant hover:text-secondary material-symbols-outlined" href="#">rss_feed</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface uppercase mb-6">Shop</h4>
+<ul class="space-y-4 text-on-surface-variant text-sm">
+<li><a class="hover:text-secondary transition-colors" href="#">Our Menu</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Coffee Subscriptions</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Brewing Gear</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Wholesale</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface uppercase mb-6">Support</h4>
+<ul class="space-y-4 text-on-surface-variant text-sm">
+<li><a class="hover:text-secondary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Shipping Info</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface uppercase mb-6">Locations</h4>
+<ul class="space-y-4 text-on-surface-variant text-sm">
+<li>5th Avenue Flagship, NY</li>
+<li>Marunouchi District, Tokyo</li>
+<li>Saint-Germain-des-Prés, Paris</li>
+<li>The Pearl-Qatar, Doha</li>
+</ul>
+</div>
+</div>
+<div class="mt-12 text-center text-on-surface-variant text-xs opacity-60">
+            © 2024 EspressoLux Artisanal Roasters. All rights reserved.
+        </div>
+</footer>
+<!-- Quick View Modal -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-6 hidden" id="quick-view">
+<div class="absolute inset-0 bg-background/80 backdrop-blur-md" onclick="closeQuickView()"></div>
+<div class="relative glass-card max-w-4xl w-full max-h-[90vh] overflow-y-auto grid md:grid-cols-2 p-8 gap-12">
+<button class="absolute top-4 right-4 material-symbols-outlined text-secondary" onclick="closeQuickView()">close</button>
+<div class="h-96 md:h-full">
+<img class="w-full h-full object-cover rounded-sm" data-alt="Close up of coffee" id="qv-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEyUGh1uvfj-0sacqbOaZ8G8k1lz1MYOCgSWaEHGZU-9S_6uXDrbT5qkwhtF5Ej98r_GUVdZVChuCb6OdwODeg9OyLgF53mbxJojcKHjESkIekbX5ij5No9m5OPTDJRvZ_nhZvvyhNf37dU48ZEdEE3spvi-hzYJmbCukUelfhtQwZ9I9Y5Qplck3vmHuatzw1YAFwNScEKlrCEx-StqsiWV3CM-kNfilNUQ6bzsFKjBmWXJ7i8Bi3"/>
+</div>
+<div class="flex flex-col justify-center">
+<h2 class="font-headline-md text-headline-md mb-2" id="qv-title"></h2>
+<div class="flex items-center gap-4 mb-6">
+<span class="text-secondary text-2xl font-bold" id="qv-price"></span>
+<div class="flex text-secondary/60 text-sm">
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+</div>
+<p class="text-on-surface-variant mb-8 leading-relaxed" id="qv-desc"></p>
+<div class="space-y-6">
+<div>
+<span class="font-label-caps text-xs text-secondary uppercase block mb-3">Customization</span>
+<div class="flex gap-2">
+<button class="px-4 py-2 border border-secondary text-secondary text-xs">Standard</button>
+<button class="px-4 py-2 border border-outline-variant/30 text-on-surface-variant text-xs">Oat Milk</button>
+<button class="px-4 py-2 border border-outline-variant/30 text-on-surface-variant text-xs">Extra Shot</button>
+</div>
+</div>
+<button class="w-full py-4 bg-secondary text-on-secondary font-button text-button uppercase tracking-widest" onclick="addToCartFromQV()">Add to Selection</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Back to top -->
+<button class="fixed bottom-8 right-8 p-4 bg-secondary text-on-secondary rounded-full shadow-lg transition-all opacity-0 pointer-events-none hover:scale-110 active:scale-95 z-40" id="back-to-top">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+<script>
+        // Data and Logic
+        const menuItems = [
+            { id: 1, title: 'Black Velvet Espresso', price: 6.5, category: 'espresso', badge: 'Best Seller', rating: 4.9, img: 'https://images.unsplash.com/photo-1510707513152-47aca722f46a?q=80&w=600&auto=format&fit=crop', desc: 'A rich, dark profile with heavy notes of blackberry and volcanic ash finish.' },
+            { id: 2, title: 'Onyx Cold Brew', price: 9.0, category: 'cold', badge: 'New', rating: 4.7, img: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=600&auto=format&fit=crop', desc: 'Slow steeped for 24 hours in mineral-rich spring water. Clean and chocolatey.' },
+            { id: 3, title: 'Golden Leaf Cappuccino', price: 8.5, category: 'hot', badge: '', rating: 4.8, img: 'https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600&auto=format&fit=crop', desc: 'Topped with edible 24k gold leaf and cinnamon dust on creamy silk-foam.' },
+            { id: 4, title: 'Bourbon Barrel Macchiato', price: 11.0, category: 'hot', badge: 'Sale', rating: 4.6, img: 'https://images.unsplash.com/photo-1485808191679-5f63bb36281e?q=80&w=600&auto=format&fit=crop', desc: 'Beans aged in bourbon barrels for 6 months, creating a smoky, spirited aroma.' },
+            { id: 5, title: 'Rose Garden Iced Latte', price: 10.5, category: 'cold', badge: '', rating: 4.9, img: 'https://images.unsplash.com/photo-1553909489-cd47e0907980?q=80&w=600&auto=format&fit=crop', desc: 'Infused with Damascus rose water and organic beetroot for a delicate pink hue.' },
+            { id: 6, title: 'Emerald Matcha Ritual', price: 12.0, category: 'hot', badge: 'New', rating: 4.5, img: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=600&auto=format&fit=crop', desc: 'Ceremonial grade Uji Matcha whisked with steamed almond milk and vanilla bean.' },
+            { id: 7, title: 'Truffle Chocolate Torte', price: 14.0, category: 'desserts', badge: '', rating: 5.0, img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop', desc: '70% dark chocolate mousse with a liquid sea-salt caramel center.' },
+            { id: 8, title: 'Spiced Pumpkin Financier', price: 7.0, category: 'desserts', badge: 'Sale', rating: 4.4, img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop', desc: 'Brown butter almond cakes spiced with autumn harvest flavors.' }
+        ];
+
+        // Populate with 30 items for the grid requirement (duplicated data for demo)
+        const fullMenu = [];
+        for(let i=0; i<4; i++) {
+            menuItems.forEach(item => fullMenu.push({...item, id: Math.random()}));
+        }
+
+        let cart = [];
+
+        function renderProducts(items) {
+            const container = document.getElementById('product-container');
+            container.innerHTML = '';
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'glass-card p-4 group product-grid-enter opacity-0 scale-95 transition-all duration-500';
+                card.innerHTML = `
+                    <div class="relative overflow-hidden mb-4 aspect-square">
+                        <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        ${item.badge ? `<span class="absolute top-2 left-2 bg-secondary text-on-secondary px-2 py-0.5 font-label-caps text-[10px]">${item.badge}</span>` : ''}
+                        <div class="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                            <button onclick="openQuickView('${item.title}')" class="bg-surface-bright p-3 rounded-full material-symbols-outlined text-secondary hover:bg-secondary hover:text-on-secondary transition-all">visibility</button>
+                            <button onclick="addToCart(${JSON.stringify(item).replace(/"/g, '&quot;')})" class="bg-secondary p-3 rounded-full material-symbols-outlined text-on-secondary hover:scale-110 transition-all">shopping_cart</button>
+                        </div>
+                    </div>
+                    <h4 class="font-headline-sm text-lg mb-1">${item.title}</h4>
+                    <p class="text-on-surface-variant text-xs mb-4 line-clamp-1">${item.desc}</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-secondary font-semibold">$${item.price.toFixed(2)}</span>
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[10px] text-secondary">star</span>
+                            <span class="text-[10px] text-on-surface-variant">${item.rating}</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+                setTimeout(() => {
+                    card.classList.remove('opacity-0', 'scale-95');
+                    card.classList.add('opacity-100', 'scale-100');
+                }, 50);
+            });
+        }
+
+        function filterMenu(category) {
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(btn => btn.classList.remove('bg-secondary', 'text-on-secondary'));
+            event.currentTarget.classList.add('bg-secondary', 'text-on-secondary');
+            
+            if (category === 'all') {
+                renderProducts(fullMenu);
+            } else {
+                const filtered = fullMenu.filter(item => item.category === category);
+                renderProducts(filtered);
+            }
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('translate-x-full');
+        }
+
+        function addToCart(item) {
+            cart.push(item);
+            updateCart();
+        }
+
+        function updateCart() {
+            const badge = document.getElementById('cart-badge');
+            const itemsContainer = document.getElementById('cart-items');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            
+            badge.innerText = cart.length;
+            
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '<p class="text-center text-on-surface-variant py-20 italic">Your collection is empty.</p>';
+            } else {
+                itemsContainer.innerHTML = cart.map((item, idx) => `
+                    <div class="flex gap-4 items-center bg-surface-container-highest/30 p-3">
+                        <img src="${item.img}" class="w-16 h-16 object-cover">
+                        <div class="flex-grow">
+                            <h5 class="text-sm font-semibold">${item.title}</h5>
+                            <span class="text-secondary text-xs">$${item.price.toFixed(2)}</span>
+                        </div>
+                        <button onclick="removeFromCart(${idx})" class="material-symbols-outlined text-outline text-sm hover:text-error">delete</button>
+                    </div>
+                `).join('');
+            }
+            
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            subtotalEl.innerText = `$${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function openQuickView(title) {
+            const item = fullMenu.find(i => i.title === title);
+            document.getElementById('qv-title').innerText = item.title;
+            document.getElementById('qv-price').innerText = `$${item.price.toFixed(2)}`;
+            document.getElementById('qv-desc').innerText = item.desc;
+            document.getElementById('qv-img').src = item.img;
+            document.getElementById('quick-view').classList.remove('hidden');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quick-view').classList.add('hidden');
+        }
+
+        function addToCartFromQV() {
+            const title = document.getElementById('qv-title').innerText;
+            const item = fullMenu.find(i => i.title === title);
+            addToCart(item);
+            closeQuickView();
+        }
+
+        // Particles
+        function createParticles() {
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.className = 'bean-particle material-symbols-outlined';
+                p.innerText = 'coffee';
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.top = Math.random() * 100 + 'vh';
+                p.style.fontSize = Math.random() * 20 + 10 + 'px';
+                p.style.animation = `float ${Math.random() * 10 + 20}s linear infinite`;
+                document.body.appendChild(p);
+            }
+        }
+
+        // Scroll animations
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const btt = document.getElementById('back-to-top');
+            
+            if (window.scrollY > 100) {
+                header.classList.add('bg-surface/95', 'h-16');
+                header.classList.remove('h-20');
+                btt.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                header.classList.remove('bg-surface/95', 'h-16');
+                header.classList.add('h-20');
+                btt.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        document.getElementById('back-to-top').onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+
+        // Init
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById('loading-screen').classList.add('opacity-0');
+                setTimeout(() => {
+                    document.getElementById('loading-screen').remove();
+                    document.getElementById('hero-content').classList.remove('opacity-0', 'translate-y-10');
+                }, 500);
+            }, 1500);
+            
+            renderProducts(fullMenu);
+            createParticles();
+        };
+
+        // Simple floating animation for particles
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes float {
+                from { transform: translateY(0) rotate(0deg); }
+                to { transform: translateY(-100vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body></html>
